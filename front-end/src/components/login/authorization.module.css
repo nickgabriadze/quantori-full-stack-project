@@ -1,0 +1,64 @@
+.login-form{
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    border-radius: 8px;
+    display: flex;
+    flex-direction: column;
+    gap: 35px;
+    background-color: white;
+    max-width:  50%;
+    min-width: 30%;
+    padding: 30px;
+
+    & h1 {
+        color: var(--main-color);
+    }
+
+
+}
+
+
+.cancel-btn {
+    font-size: var(--font-medium);
+    padding: 5px 15px;
+    background-color: transparent;
+    border-radius: 4px;
+    border: 1px solid var(--main-color);
+    cursor: pointer;
+}
+
+
+
+.authorization-input-container {
+
+    border: 2px solid var(--main-color);
+    border-radius: 6px;
+    padding: 10px;
+    display: flex;
+    flex-direction: column;
+    position: relative;
+
+    & label {
+        position: absolute;
+        top: -10px;
+        padding-left: 5px;
+        padding-right: 5px;
+        background-color: white;
+        color: var(--main-color);
+    }
+    & input {
+        border: none;
+        padding: 5px;
+        outline: transparent;
+    }
+}
+
+.cancel-submit {
+    display: flex;
+    align-items: center;
+    justify-content: right;
+    gap: 10px;
+    cursor: pointer;
+}
