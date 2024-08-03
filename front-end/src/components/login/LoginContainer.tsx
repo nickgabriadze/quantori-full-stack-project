@@ -1,5 +1,6 @@
 import AuthorizationCSS from './authorization.module.css'
-import {useState} from "react";
+import {FormEvent, useState} from "react";
+import login from "../../apis/login.ts";
 
 export function LoginContainer() {
     const [authInfo, setAuthInfo] = useState({
@@ -11,7 +12,21 @@ export function LoginContainer() {
         setAuthInfo({email: '', password: ''})
     }
 
-    return <form className={AuthorizationCSS['login-form']}>
+    const loginUser = async (e: FormEvent<HTMLFormElement>) => {
+        e.preventDefault()
+        const request = await login(authInfo.email, authInfo.password)
+        if (request.data.status === 403) {
+            alert("Incorrect email or password!")
+        }
+        if (request.data.status === 200) {
+            localStorage.setItem('accessToken', request.data.message)
+            window.dispatchEvent(new Event("user-auth"))
+        }
+    }
+
+    return <form className={AuthorizationCSS['login-form']}
+                 onSubmit={(e) => loginUser(e)}
+    >
         <h1>Login</h1>
 
         <div className={AuthorizationCSS['authorization-input-container']}>
