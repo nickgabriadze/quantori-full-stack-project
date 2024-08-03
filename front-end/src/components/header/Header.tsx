@@ -1,17 +1,11 @@
 import HeaderCSS from './header.module.css'
 import UserIcon from '../../images/icons/account-icon.svg'
-import {useEffect, useRef, useState} from "react";
+import {useState} from "react";
 
 export function Header() {
     const [dropDown, setDropDown] = useState<boolean>(false)
     const currentPath = window.location.pathname.slice(1,)
-    const dropDownRef = useRef(null)
 
-
-    useEffect(() => {
-
-
-    }, [dropDownRef.current])
 
 
 
