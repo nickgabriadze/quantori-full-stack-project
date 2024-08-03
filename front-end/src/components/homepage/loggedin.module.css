@@ -1,0 +1,32 @@
+.wrapper{
+
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    background-color: whitesmoke;
+    border-radius: 10px;
+
+    display: flex;
+    flex-direction: column;
+    gap: 20px;
+    padding: 30px;
+}
+
+.user-btns{
+    display: flex;
+    justify-content: space-between;
+
+    & button{
+        color: var(--main-color);
+        background-color: white;
+        border: 1px solid var(--main-color);
+        padding: 5px;
+        border-radius: 5px;
+        cursor: pointer;
+    }
+
+    & button:hover {
+        background-color: whitesmoke;
+    }
+}
