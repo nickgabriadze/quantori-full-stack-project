@@ -8,8 +8,38 @@
     padding: 10px 20px;
     justify-content: space-between;
     z-index: 9999;
+
 }
 
+.dropdown-menu {
+    display: none;
+    position: relative;
+}
+
+/* only shows up if the width of the screen is less or equal to 600px */
+
+.nav-dropdown {
+    position: absolute;
+    display: flex;
+    flex-direction: column;
+    right: 20px;
+    top: 0;
+    background-color: whitesmoke;
+    border: 1px solid var(--main-color);
+    border-radius: 5px;
+    & a {
+        padding: 5px;
+        color: var(--main-color);
+        text-decoration: none;
+
+    }
+
+
+    & a:hover {
+        background-color: rgba(103, 131, 127, 0.75);
+        color: white;
+    }
+}
 .navigation-wrapper{
     display: flex;
     align-items: center;
@@ -18,7 +48,6 @@
 
 .nav-links {
     display: flex;
-    gap: 5px;
     align-items: center;
 
     border: 1px solid var(--main-color);
@@ -29,17 +58,26 @@
         color: var(--main-color);
         padding: 5px 10px;
         cursor: pointer;
+        transition: all 300ms linear;
+    }
+    & a:hover{
+        background-color: rgba(103, 131, 127, 0.75);
+        color: white;
     }
 
+
     & a:nth-child(1) {
-        background-color: var(--main-color);
         border-top-left-radius: inherit;
         border-bottom-left-radius: inherit;
-        color: white;
+    }
+
+    & a:nth-child(3) {
+        border-top-right-radius: inherit;
+        border-bottom-right-radius: inherit;
     }
 }
 
-.login-btn {
+.login-btn-header {
     border-radius: 4px;
     border: none;
     background-color: var(--main-color);
@@ -52,4 +90,40 @@
 .login-btn:active{
     border: 1px solid var(--main-color);
 
+}
+
+
+@media only screen and (max-width: 600px){
+    .nav-links {
+        display: none;
+    }
+
+    .login-btn-header {
+        display: none;
+    }
+
+
+    .dropdown-menu{
+        display: initial;
+
+        border: 2px solid var(--main-color);
+        padding: 4px;
+        cursor: pointer;
+        border-radius: 45px;
+        .dots {
+            display: flex;
+            flex-direction: column;
+            gap: 5px;
+            border: none;
+            cursor: pointer;
+
+            & span {
+               height: 8px;
+               width: 8px;
+               border-radius: 100%;
+               border: 2px solid var(--main-color);
+           }
+        }
+
+    }
 }

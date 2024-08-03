@@ -1,4 +1,4 @@
-.login-form{
+.login-form {
     position: absolute;
     top: 50%;
     left: 50%;
@@ -8,8 +8,10 @@
     flex-direction: column;
     gap: 35px;
     background-color: white;
-    max-width:  50%;
-    min-width: 30%;
+
+
+    max-width: 80%;
+    min-width: 40%;
     padding: 30px;
 
     & h1 {
@@ -20,15 +22,26 @@
 }
 
 
-.cancel-btn {
+.cancel-btn, .login-btn {
+    cursor: pointer;
     font-size: var(--font-medium);
+    border-radius: 4px;
+}
+
+.cancel-btn {
     padding: 5px 15px;
     background-color: transparent;
-    border-radius: 4px;
     border: 1px solid var(--main-color);
     cursor: pointer;
 }
 
+.login-btn {
+
+    border: none;
+    background-color: var(--main-color);
+    color: white;
+    padding: 5px 20px;
+}
 
 
 .authorization-input-container {
@@ -48,10 +61,12 @@
         background-color: white;
         color: var(--main-color);
     }
+
     & input {
         border: none;
         padding: 5px;
         outline: transparent;
+        width: 100%;
     }
 }
 
@@ -60,5 +75,32 @@
     align-items: center;
     justify-content: right;
     gap: 10px;
+
     cursor: pointer;
+}
+
+
+@media only screen and (max-width: 400px) {
+
+    .login-form {
+        width: 90vw;
+    }
+}
+
+@media only screen and (max-width: 400px) {
+    .cancel-btn, .login-btn {
+        font-size: var(--font-small);
+        width: 100%;
+
+    }
+
+    .cancel-submit {
+        justify-content: center;
+    }
+
+    .authorization-input-container {
+        label {
+            font-size: var(--font-small);
+        }
+    }
 }

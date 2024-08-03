@@ -1,5 +1,4 @@
 import AuthorizationCSS from './authorization.module.css'
-import HeaderCSS from './../header/header.module.css'
 import {useState} from "react";
 
 export function LoginContainer() {
@@ -7,8 +6,6 @@ export function LoginContainer() {
         email: '',
         password: ''
     })
-
-
 
     const clearForm = () => {
         setAuthInfo({email: '', password: ''})
@@ -39,8 +36,9 @@ export function LoginContainer() {
             <button type={"button"}
                     name={'password'}
                     onClick={clearForm}
-                    className={AuthorizationCSS['cancel-btn']}>Cancel</button>
-            <button className={HeaderCSS['login-btn']}>Login</button>
+                    className={AuthorizationCSS['cancel-btn']}>Cancel
+            </button>
+            <button className={AuthorizationCSS['login-btn']}>Login</button>
         </div>
     </form>
 
