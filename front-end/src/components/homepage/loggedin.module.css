@@ -16,7 +16,7 @@
 .user-btns{
     display: flex;
     justify-content: space-between;
-
+    gap: 15px;
     & button{
         color: var(--main-color);
         background-color: white;
@@ -29,4 +29,10 @@
     & button:hover {
         background-color: whitesmoke;
     }
+}
+
+.user-info {
+    display: flex;
+    flex-direction: column;
+    gap: 10px;
 }

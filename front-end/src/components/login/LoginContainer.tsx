@@ -1,6 +1,6 @@
 import AuthorizationCSS from './authorization.module.css'
 import {FormEvent, useState} from "react";
-import login from "../../apis/login.ts";
+import login from "../../apis/post/login.ts";
 
 export function LoginContainer() {
     const [authInfo, setAuthInfo] = useState({
