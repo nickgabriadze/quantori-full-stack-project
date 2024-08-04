@@ -1,4 +1,4 @@
-import app from './../axios'
+import app from '../../axios.ts'
 import {AxiosResponse} from "axios";
 
 export async function login(
