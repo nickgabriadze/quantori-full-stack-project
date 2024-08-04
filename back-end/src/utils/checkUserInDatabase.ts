@@ -1,8 +1,7 @@
 import csv = require('csv-parser');
 import * as fs from 'fs';
-import {User} from "../types/user";
 
-export async function checkUserInDatabase(path:string, email:string, password:string):Promise<User | undefined>{
+export async function checkUserInDatabase(path:string, email:string, password:string):Promise<boolean>{
     return await(new Promise((resolve, reject) => {
         const users = [];
 
@@ -12,18 +11,10 @@ export async function checkUserInDatabase(path:string, email:string, password:st
             .on('end', () => {
                 for (const user of users) {
                     if (String(user.password) === password && String(user.email) === email) {
-                        return resolve({
-                            id: Number(user.id),
-                            f_name: user.f_name,
-                            l_name: user.l_name,
-                            email: user.email,
-                            password: user.password,
-                            age: Number(user.age),
-                            gender: user.gender,
-                        });
+                        return resolve(true);
                     }
                 }
-                resolve(undefined);
+                resolve(false);
             })
             .on('error', (error) => reject(error));
     }));
