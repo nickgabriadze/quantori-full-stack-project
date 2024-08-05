@@ -42,7 +42,6 @@ function App() {
             window.removeEventListener('user-auth', checkLocalStorage)
         }
     }, [])
-    console.log('app')
     return <>
 
         <BrowserRouter>
