@@ -59,17 +59,17 @@ export function LoggedIn() {
 
 
     return <div className={LoggedInCSS['wrapper']}>
-        <h2>{error.status === 401 ? "Hey! You are not logged in anymore" :"Hey! You are logged in"}</h2>
+        <h2 align={'center'}>{error.status === 401 || error.status === 404 ? "Hey! You are not logged in anymore" : "Hey! You are logged in"}</h2>
 
 
-        {error.status === 401 || error.status === 404 || error.status === 500 ? <h5 align={'center'}>{error.message}</h5> :
+        {error.status === 401 || error.status === 404 || error.status === 500 ? <h5 align={'center'} style={{color: 'darkred'}}>{error.message}</h5> :
             <div className={LoggedInCSS['user-info']}>
                 <h6 align={'center'}>Click the button to get profile data</h6>
                 <h5>Username: <span>{userData?.username}</span></h5>
                 <h5>email: <span>{userData?.email}</span></h5>
 
                 {expiresIn !== 'null' &&
-                    <p align={'center'}>{expiresIn === "Expired" ? expiresIn : `Your token will expire in ${expiresIn}`}</p>
+                    <span style={{color: 'darkred'} }>{expiresIn === "Expired" ? expiresIn : `Your token will expire in ${expiresIn}`}</span>
                 }
             </div>
         }
@@ -80,7 +80,7 @@ export function LoggedIn() {
             <button onClick={() => {
                 localStorage.clear()
                 window.dispatchEvent(new Event("user-auth"))
-            }}>Log out!
+            }}>Log out
             </button>
 
         </div>

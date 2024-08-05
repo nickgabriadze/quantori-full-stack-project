@@ -11,6 +11,13 @@
     flex-direction: column;
     gap: 20px;
     padding: 30px;
+
+
+
+    & span {
+        text-align: center;
+        font-size: var(--font-small);
+    }
 }
 
 .user-btns{
