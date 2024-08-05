@@ -12,6 +12,8 @@ export function LoginContainer() {
         setAuthInfo({email: '', password: ''})
     }
 
+
+
     const loginUser = async (e: FormEvent<HTMLFormElement>) => {
         e.preventDefault()
         const request = await login(authInfo.email, authInfo.password)

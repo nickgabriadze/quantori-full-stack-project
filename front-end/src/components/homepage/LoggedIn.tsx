@@ -1,6 +1,7 @@
 import LoggedInCSS from './loggedin.module.css'
 import profile from "../../apis/get/profile.ts";
 import {useState} from "react";
+import {useCalculateExpiration} from "../login/useCalculateExpiration.ts";
 
 export function LoggedIn() {
     const [loading, setLoading] = useState<boolean>(false)
@@ -13,6 +14,10 @@ export function LoggedIn() {
         message: string
     }>({status: NaN, message: ''})
 
+    const token = localStorage.getItem('accessToken')
+
+    const expiresIn = useCalculateExpiration(token)
+
     const getProfileData = async () => {
         setLoading(true)
         try {
@@ -23,14 +28,19 @@ export function LoggedIn() {
                 const request = await profile(token)
                 const user = request.data
                 setLoading(false)
-                if (user.status === 200){
+                if (user.status === 200) {
                     setUserData(user.data)
                     setError({
                         status: NaN,
                         message: ''
                     })
                 }
-                if(user.status === 401 || user.status === 404){
+                if (user.status === 401 || user.status === 404) {
+                    /*
+                    I have this 404 in case the user gets deleted while logged in,
+                    so it will display that user couldn't be found
+                    instead of some other error messages
+                     */
                     setError({
                         status: user.status,
                         message: user.message
@@ -40,20 +50,29 @@ export function LoggedIn() {
 
             }
         } catch (err) {
-            }
+            setError({
+                status: 500,
+                message: err
+            })
+        }
     }
 
 
-
-
     return <div className={LoggedInCSS['wrapper']}>
-        <h2>Hey! You are logged in</h2>
+        <h2>{error.status === 401 ? "Hey! You are not logged in anymore" :"Hey! You are logged in"}</h2>
 
 
-        {error.status === 401 || error.status === 404 ? <h5>{error.message}</h5> : <div className={LoggedInCSS['user-info']}>
-            <h5>Username: <span>{userData?.username}</span></h5>
-            <h5>email: <span>{userData?.email}</span></h5>
-        </div>}
+        {error.status === 401 || error.status === 404 || error.status === 500 ? <h5 align={'center'}>{error.message}</h5> :
+            <div className={LoggedInCSS['user-info']}>
+                <h6 align={'center'}>Click the button to get profile data</h6>
+                <h5>Username: <span>{userData?.username}</span></h5>
+                <h5>email: <span>{userData?.email}</span></h5>
+
+                {expiresIn !== 'null' &&
+                    <p align={'center'}>{expiresIn === "Expired" ? expiresIn : `Your token will expire in ${expiresIn}`}</p>
+                }
+            </div>
+        }
 
         <div className={LoggedInCSS['user-btns']}>
 

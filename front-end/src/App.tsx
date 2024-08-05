@@ -14,14 +14,21 @@ function App() {
     useEffect(() => {
         const checkLocalStorage = () => {
             const token = localStorage.getItem('accessToken')
-            if (
-               token &&
-                Math.floor((new Date().getTime() / 1000)) > decodeJwt(token).exp) {
+
+            if (!token) {
                 setIsLoggedIn(false)
-                localStorage.clear()
             } else {
-                setIsLoggedIn(false)
+                if (
+                    token &&
+                    Math.floor((new Date().getTime() / 1000)) > decodeJwt(token).exp) {
+                    setIsLoggedIn(false)
+                    localStorage.clear()
+                } else {
+                    setIsLoggedIn(true)
+                }
             }
+
+
         }
         window.addEventListener('user-auth', checkLocalStorage)
 
