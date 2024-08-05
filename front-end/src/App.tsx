@@ -43,8 +43,8 @@ function App() {
             <Routes>
 
                 <Route path={'/'} element={isLoggedIn ? <LoggedIn/> : <LoginContainer/>}></Route>
-                <Route path={'/contact'} element={<h1>Hello</h1>}></Route>
-                <Route path={'/about'} element={<h1>Hello</h1>}></Route>
+                <Route path={'/contact'} element={<h1>Hey, this is Contact page!</h1>}></Route>
+                <Route path={'/about'} element={<h1>Hey, this is About page!</h1>}></Route>
             </Routes>
             <Footer/>
         </BrowserRouter>
