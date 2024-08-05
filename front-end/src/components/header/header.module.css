@@ -1,14 +1,12 @@
 
 .header-container {
-    position: fixed;
-    width: 100%;
+    position: sticky;
     background-color: whitesmoke;
     display: flex;
     align-items: center;
     padding: 10px 20px;
     justify-content: space-between;
     z-index: 9999;
-
 }
 
 .dropdown-menu {

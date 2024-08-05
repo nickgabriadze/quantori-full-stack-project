@@ -29,6 +29,7 @@ export function LoginContainer() {
     >
         <h1>Login</h1>
 
+        <div className={AuthorizationCSS['input-wrapper']}>
         <div className={AuthorizationCSS['authorization-input-container']}>
             <label htmlFor={"email"}>Email</label>
             <input
@@ -45,6 +46,7 @@ export function LoginContainer() {
                 value={authInfo.password}
                 onChange={(e) => setAuthInfo({...authInfo, password: e.target.value})}
                 type={'password'} name={'password'} id={'password'} maxLength={255} required/>
+        </div>
         </div>
 
         <div className={AuthorizationCSS['cancel-submit']}>

@@ -8,6 +8,7 @@
     flex-direction: column;
     gap: 35px;
     background-color: white;
+    height: fit-content;
 
 
     max-width: 80%;
@@ -79,6 +80,17 @@
     cursor: pointer;
 }
 
+.input-wrapper{
+    display: flex;
+    flex-direction: column;
+    gap: 20px;
+}
+
+@media only screen and (max-height: 450px){
+    .input-wrapper{
+        flex-direction: row;
+    }
+}
 
 @media only screen and (max-width: 400px) {
 
