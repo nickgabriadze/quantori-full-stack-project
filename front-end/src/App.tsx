@@ -13,8 +13,10 @@ function App() {
 
     useEffect(() => {
         const checkLocalStorage = () => {
+            const token = localStorage.getItem('accessToken')
             if (
-                Math.floor((new Date().getTime() / 1000)) > decodeJwt(localStorage.getItem('accessToken')).exp) {
+               token &&
+                Math.floor((new Date().getTime() / 1000)) > decodeJwt(token).exp) {
                 setIsLoggedIn(false)
                 localStorage.clear()
             } else {
