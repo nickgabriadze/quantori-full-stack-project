@@ -9,6 +9,7 @@
     
     1.3 ```npm run dev```
 
+###### Open another terminal
 
 2. For Back-End
 
