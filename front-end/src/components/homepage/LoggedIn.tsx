@@ -69,7 +69,7 @@ export function LoggedIn() {
                 <h5>email: <span>{userData?.email}</span></h5>
 
                 {expiresIn !== 'null' &&
-                    <span style={{color: 'darkred'} }>{expiresIn === "Expired" ? expiresIn : `Your token will expire in ${expiresIn}`}</span>
+                    <span style={{color: 'darkred'} }>{expiresIn === "Token Expired!" ? expiresIn : `Your token will expire in ${expiresIn}`}</span>
                 }
             </div>
         }

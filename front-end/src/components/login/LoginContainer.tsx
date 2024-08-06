@@ -25,7 +25,7 @@ export function LoginContainer() {
                 window.dispatchEvent(new Event("user-auth"))
             }
         }catch(err){
-            alert(err.message)
+            alert(`${err.message}, please reload the page and try again!`)
         }
     }
 
