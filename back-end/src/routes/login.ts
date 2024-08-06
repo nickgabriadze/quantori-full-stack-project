@@ -1,6 +1,6 @@
 import express, {Router} from "express";
 import checkUserInDatabase from "../utils/checkUserInDatabase";
-import generateToken from "../utils/generateToken";
+import generateToken from "../token-handlers/generateToken";
 
 
 const loginRoute = Router()

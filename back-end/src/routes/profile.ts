@@ -1,5 +1,5 @@
 import express, {Router} from "express";
-import decodeToken from "../utils/decodeToken";
+import decodeToken from "../token-handlers/decodeToken";
 import {User} from "../types/user";
 import getUser from "../utils/getUser";
 
