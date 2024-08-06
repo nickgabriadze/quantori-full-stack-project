@@ -12,7 +12,12 @@ export function useCalculateExpiration(token) {
             if (!token) {
                 setTillExpiry('Token Expired!')
             } else {
-                setTillExpiry(calculateTimeRemaining(new Date(decodeJwt(token).exp * 1000).toISOString()))
+                try{
+                    const decoded = decodeJwt(token);
+                    setTillExpiry(calculateTimeRemaining(new Date(decoded.exp * 1000).toISOString()))
+                }catch (err){
+                    setTillExpiry('Token Expired!')
+                }
 
             }
         }, 1000)
