@@ -9,9 +9,10 @@ export const generateToken = async (email: string) => {
 
     const encoder = new TextEncoder();
     const secretKey = encoder.encode(secret);
+    const expirationTime = "1m"
 
     return await new SignJWT({ email })
-        .setExpirationTime("1m")
+        .setExpirationTime(expirationTime)
         .setIssuedAt()
         .setProtectedHeader({ alg: "HS256" })
         .sign(secretKey);
