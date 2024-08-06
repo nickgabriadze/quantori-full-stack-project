@@ -52,7 +52,7 @@ export function LoggedIn() {
         } catch (err) {
             setError({
                 status: 500,
-                message: err
+                message: `${err.message}, please reload the page and try again!`
             })
         }
     }
