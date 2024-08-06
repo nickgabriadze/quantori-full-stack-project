@@ -3,7 +3,7 @@
 #### In order to run the application, you just have to clone or download the repository, and then you need to do the following.
 1. For Front-End
 
-    1.1 ```cd './front-end'```
+    1.1 ```cd 'front-end'```
 
     1.2 ```npm i```
     
@@ -12,7 +12,7 @@
 
 2. For Back-End
 
-   2.1 ```cd './back-end'```
+   2.1 ```cd 'back-end'```
     
    2.2 ```npm i```
 
