@@ -1,6 +1,6 @@
 ## Full Stack Project
 
-###### In order to run the application, you just have to clone or download the repository, and then you need to do the following.
+#### In order to run the application, you just have to clone or download the repository, and then you need to do the following.
 1. For Front-End
 
     1.1 ```cd './front-end'```
