@@ -18,13 +18,18 @@ function App() {
             if (!token) {
                 setIsLoggedIn(false)
             } else {
-                if (
-                    token &&
-                    Math.floor((new Date().getTime() / 1000)) > decodeJwt(token).exp) {
+                try {
+                    const decoded = decodeJwt(token)
+                    if (
+                        token &&
+                        Math.floor((new Date().getTime() / 1000)) > decoded.exp) {
+                        setIsLoggedIn(false)
+                        localStorage.clear()
+                    } else {
+                        setIsLoggedIn(true)
+                    }
+                }catch(err){
                     setIsLoggedIn(false)
-                    localStorage.clear()
-                } else {
-                    setIsLoggedIn(true)
                 }
             }
 
