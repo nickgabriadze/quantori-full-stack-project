@@ -14,7 +14,7 @@ profileRoute.get('/', async (req: express.Request, res: express.Response) => {
         if (decoded === undefined) {
             res.send({
                 status: 401,
-                message: "Wrong or expired Bearer token was provided"
+                message: "Wrong or expired Bearer token was provided!"
             })
         } else {
 
